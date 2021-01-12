@@ -1,5 +1,3 @@
-# crawler_tv
-
 ## Project setup
 ```
 yarn install
