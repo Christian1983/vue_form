@@ -32,7 +32,8 @@ export default {
     },
 
     reset() {
-      this.model = JSON.parse(JSON.stringify(this.edit_model))
+      console.log('resetting ...')
+      this.edit_model = JSON.parse(JSON.stringify(this.model))
     },
 
     submit() {

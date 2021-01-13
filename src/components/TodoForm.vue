@@ -13,6 +13,7 @@
       p(for="complete") ID
       input#complete(type="checkbox" name="complete" v-model="edit_model.completed")
       br
+      button(:disabled="!changed" @click="reset") Abbrechen
       button(type='submit' :disabled="!changed") Speichern
 </template>
 
