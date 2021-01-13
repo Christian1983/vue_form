@@ -6,10 +6,14 @@ export default {
     model: null,
     edit_model: null,
     loading: true,
+    requiredRule: [
+      v => !!v || 'Muss ausgefüllt werden.'
+    ]
   }),
 
   created: function () {
     if (this.url != undefined) { this.initModel() }
+    else { console.log('error: model url undefined!') }
   },
 
   methods: {
@@ -22,18 +26,29 @@ export default {
         })
     },
 
-    checkForm() {
+    validate() {
       console.log('checking form ...')
+      return true
+    },
+
+    reset() {
+      this.model = JSON.parse(JSON.stringify(this.edit_model))
+    },
+
+    submit() {
+      if(this.validate()) {
+        // .. submit
+      }
     }
   },
 
   computed: {
-    changed: function () {
+    changed: function() {
       let __changed = false
       Object.entries(this.edit_model).forEach(([key, value]) => {
         if (value != this.model[key]) { __changed = true }
       })
       return __changed
-    }
+    },
   }
 }

@@ -1,6 +1,6 @@
 <template lang='pug'>
   #TodoEdit(v-if="!loading")
-    form(@submit="checkForm")
+    form(@submit="submit")
       p(for="userID") User ID
       input#userID(type="text" name="userID" v-model="edit_model.userId")
       br
@@ -8,7 +8,7 @@
       input#id(type="text" name="id" v-model="edit_model.id")
       br
       p(for="title") Title
-      input#title(type="text" name="title" v-model="edit_model.title")
+      input#title(type="text" name="title" v-model="edit_model.title" required :rules="requiredRule")
       br
       p(for="complete") ID
       input#complete(type="checkbox" name="complete" v-model="edit_model.completed")
